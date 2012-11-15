@@ -1010,10 +1010,17 @@ function ql_customize_preview() {
 		// Center video
 		wp.customize('ql_widgets[video]', function (value){
 			value.bind(function(to){
-				if(to.length != 0){					
+				if(to.length != 0){
 					videoId = getUrlVar(to, 'v');				
 					$('#video param[name=movie]').attr('value', 'http://www.youtube.com/v/'+videoId+'&version=3&autohide=1&showinfo=0');
 					$('#video embed').attr('src', 'http://www.youtube.com/v/'+videoId+'&version=3&autohide=1&showinfo=0');
+					
+					// adjust width/height
+					var width = $('#wrap').width();
+					var height = Math.round(width * (3/4));
+					$('#video object, #video embed').attr('width', width);
+					$('#video object, #video embed').attr('height', height);
+					
 					$('#video').show();				
 				}else
 					$('#video').hide();
