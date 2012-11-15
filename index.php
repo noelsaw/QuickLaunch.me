@@ -10,10 +10,10 @@ $ql_title_tagline = get_option('ql_title_tagline');
 	
 		<!-- Page Header -->
 		<header>
-			<div id="site-logo" class="<?php echo ($ql_title_tagline['logo']?'':'hidden') ?>">
+			<div id="site-logo" class="">
 				<img src="<?php echo $ql_title_tagline['logo']; ?>" style="max-width:100%;" />
 			</div>
-			<div id="site-title-and-desc" class="<?php echo ($ql_title_tagline['logo']?'hidden':'') ?>">
+			<div id="site-title-and-desc" class="">
 				<h1 id="site-title"><?php echo stripslashes(get_bloginfo('title')) ?></h1>
 				<h2 id="site-desc"><?php echo stripslashes(get_bloginfo('description')) ?></h2>
 			</div>
