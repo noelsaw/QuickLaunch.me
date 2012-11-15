@@ -166,8 +166,8 @@ function ql_admin_bar()
 		
 		$wp_admin_bar->add_menu(array(
 			'id' => 'ql-personalize',
-			'title' => 'Edit site',
-			'href' => get_bloginfo('url') . '?personalize'
+			'title' => 'Customize',
+			'href' => get_bloginfo('url') . '/wp-admin/customize.php'
 		));
 		
 	}
@@ -235,8 +235,6 @@ function ql_admin_footer(){
 	}
 	
 	wp_enqueue_script('jQuery');
-	// add Edit site link
-	echo '<script type="text/javascript">jQuery(document).ready(function(){ jQuery("#current-theme .theme-options a").each(function(){ if(jQuery(this).attr("href") == "nav-menus.php") jQuery(this).remove(); }); jQuery("#current-theme .theme-options").append(" <a href=\"'.get_bloginfo('url') . '?personalize'.'\">Edit site</a>"); });</script>';
 	
 }
 add_action('admin_footer', 'ql_admin_footer');
@@ -1012,10 +1010,17 @@ function ql_customize_preview() {
 		// Center video
 		wp.customize('ql_widgets[video]', function (value){
 			value.bind(function(to){
-				if(to.length != 0){					
+				if(to.length != 0){
 					videoId = getUrlVar(to, 'v');				
 					$('#video param[name=movie]').attr('value', 'http://www.youtube.com/v/'+videoId+'&version=3&autohide=1&showinfo=0');
 					$('#video embed').attr('src', 'http://www.youtube.com/v/'+videoId+'&version=3&autohide=1&showinfo=0');
+					
+					// adjust width/height
+					var width = $('#wrap').width();
+					var height = Math.round(width * (3/4));
+					$('#video object, #video embed').attr('width', width);
+					$('#video object, #video embed').attr('height', height);
+					
 					$('#video').show();				
 				}else
 					$('#video').hide();

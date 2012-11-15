@@ -57,8 +57,10 @@ function ql_add_admin_menus()
 {
 
 	add_menu_page('QuickLaunch', 'Quicklaunch', 'edit_theme_options', 'ql-designer', 'ql_designer');
-	add_submenu_page('ql-designer', 'Edit site', 'Edit site', 'edit_theme_options', 'ql-designer', 'ql_designer');
+	add_submenu_page('ql-designer', 'Customize', 'Customize', 'edit_theme_options', 'customize.php');
 	add_submenu_page('ql-designer', 'QuickLaunch Email List', 'Email List', 'list_users', 'ql-email-list', 'ql_email_list');
+	// fix to remove duplicate submenupage
+	remove_submenu_page('ql-designer', 'ql-designer');
 
 }
 add_action('admin_menu', 'ql_add_admin_menus');

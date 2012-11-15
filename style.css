@@ -446,3 +446,9 @@ footer{
 .colorpicker{
 	z-index:999999999;
 }
+
+/* START override coin slider styls */
+.coin-slider{
+	margin-bottom:30px;
+}
+/* END override coin slider styls */

@@ -10,10 +10,10 @@ $ql_title_tagline = get_option('ql_title_tagline');
 	
 		<!-- Page Header -->
 		<header>
-			<div id="site-logo" class="<?php echo ($ql_title_tagline['logo']?'':'hidden') ?>">
+			<div id="site-logo" class="">
 				<img src="<?php echo $ql_title_tagline['logo']; ?>" style="max-width:100%;" />
 			</div>
-			<div id="site-title-and-desc" class="<?php echo ($ql_title_tagline['logo']?'hidden':'') ?>">
+			<div id="site-title-and-desc" class="">
 				<h1 id="site-title"><?php echo stripslashes(get_bloginfo('title')) ?></h1>
 				<h2 id="site-desc"><?php echo stripslashes(get_bloginfo('description')) ?></h2>
 			</div>
@@ -58,14 +58,14 @@ $ql_title_tagline = get_option('ql_title_tagline');
 		?>
 		<!-- Video -->
 		<section id="video" class="<?php echo $ql_widgets['video']?'':'hidden' ?>" >
-			<object width="<?php echo (488 - ($ql_layout['padding'] * 2)) ?>" height="315">
+			<object width="<?php echo $width = 460; ?>" height="<?php echo $height = floor($width * (3/4)); ?>">
 			  <param name="movie"
 					 value="http://www.youtube.com/v/<?php echo $youtubeParams['v']; ?>&version=3&autohide=1&showinfo=0"></param>
 			  <param name="allowScriptAccess" value="always"></param>
 			  <embed src="http://www.youtube.com/v/<?php echo $youtubeParams['v']; ?>&version=3&autohide=1&showinfo=0"
 					 type="application/x-shockwave-flash"
 					 allowscriptaccess="always"
-					 width="<?php echo (488 - ($ql_layout['padding'] * 2)) ?>" height="315"></embed>
+					 width="<?php echo $width; ?>" height="<?php echo $height; ?>"></embed>
 			</object>
 		</section>
 		<!-- End Video -->
