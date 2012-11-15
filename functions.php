@@ -166,8 +166,8 @@ function ql_admin_bar()
 		
 		$wp_admin_bar->add_menu(array(
 			'id' => 'ql-personalize',
-			'title' => 'Edit site',
-			'href' => get_bloginfo('url') . '?personalize'
+			'title' => 'Customize',
+			'href' => get_bloginfo('url') . '/wp-admin/customize.php'
 		));
 		
 	}
@@ -235,8 +235,6 @@ function ql_admin_footer(){
 	}
 	
 	wp_enqueue_script('jQuery');
-	// add Edit site link
-	echo '<script type="text/javascript">jQuery(document).ready(function(){ jQuery("#current-theme .theme-options a").each(function(){ if(jQuery(this).attr("href") == "nav-menus.php") jQuery(this).remove(); }); jQuery("#current-theme .theme-options").append(" <a href=\"'.get_bloginfo('url') . '?personalize'.'\">Edit site</a>"); });</script>';
 	
 }
 add_action('admin_footer', 'ql_admin_footer');
